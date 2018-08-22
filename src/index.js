@@ -1,5 +1,5 @@
 import { AppContainer } from 'react-hot-loader'
-import { applyMiddleware, compose, createStore } from 'redux'
+import { applyMiddleware, composeEnhancer, createStore } from 'redux'
 import { createBrowserHistory } from 'history'
 import { routerMiddleware, connectRouter } from 'connected-react-router'
 import { Provider } from 'react-redux'
@@ -18,7 +18,7 @@ const history = createBrowserHistory();
 
 const store = createStore(
   connectRouter(history)(rootReducer),
-  compose(
+  composeEnhancer(
     applyMiddleware(
       routerMiddleware(history),
     ),
