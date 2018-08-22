@@ -1,9 +1,12 @@
 import React from "react";
 import ReactDOM from "react-dom";
+
+import style from "../style/main.css";
+
 const App = () => {
   return (
     <div>
-      <p>React here!</p>
+      <p className="text">Dive Map</p>
     </div>
   );
 };
