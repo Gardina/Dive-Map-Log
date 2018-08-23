@@ -15,17 +15,18 @@ import Routes from './router';
 import '../style/main.css';
 
 const history = createBrowserHistory();
+const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
 
 const store = createStore(
   connectRouter(history)(rootReducer),
-  compose(
+  composeEnhancer(
     applyMiddleware(
       routerMiddleware(history),
     ),
   ),
 )
 
-const render = () => {
+
   ReactDOM.render(
     <AppContainer>
       <Provider store={store}>
@@ -34,19 +35,3 @@ const render = () => {
     </AppContainer>,
     document.getElementById('app')
   )
-}
-
-render()
-
-// Hot reloading
-if (module.hot) {
-  // Reload components
-  module.hot.accept('./App', () => {
-    render()
-  })
-
-  // Reload reducers
-  module.hot.accept('./reducers', () => {
-    store.replaceReducer(connectRouter(history)(rootReducer))
-  })
-}
