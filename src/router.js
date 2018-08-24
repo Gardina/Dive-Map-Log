@@ -8,8 +8,9 @@ import NavBar from './components/NavBar'
 const routes = (
   <div>
     <NavBar />
+    <Home />
     <Switch>
-      <Route exact path="/" component={Home} />
+      <Route exact path="/" component={MapMain} />
       <Route path="/map" component={MapMain} />
     </Switch>
   </div>

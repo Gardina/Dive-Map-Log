@@ -27,6 +27,7 @@ const store = createStore(
 )
 
 
+const render = () => {
   ReactDOM.render(
     <AppContainer>
       <Provider store={store}>
@@ -35,3 +36,19 @@ const store = createStore(
     </AppContainer>,
     document.getElementById('app')
   )
+}
+
+render()
+
+// Hot reloading
+if (module.hot) {
+  // Reload components
+  module.hot.accept('./App', () => {
+    render()
+  })
+
+  // Reload reducers
+  module.hot.accept('./reducers', () => {
+    store.replaceReducer(connectRouter(history)(rootReducer))
+  })
+}
