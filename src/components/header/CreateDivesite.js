@@ -3,7 +3,7 @@ import React from 'react';
 const CreateDivesite = () => {
   return (
     <div>
-      <h2>CreateDivesite</h2>
+      <h2>Create site</h2>
     </div>
   );
 };

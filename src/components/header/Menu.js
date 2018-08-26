@@ -1,13 +1,10 @@
 import React from 'react';
-
-import DiveSites from './Divesites';
-import CreateDivesite from './CreateDivesite';
+import { Link } from 'react-router-dom';
 
 const Menu = () => {
   return (
     <div>
-    <DiveSites />
-    <CreateDivesite />
+<Link to="/diveSites">Divesites</Link> <Link to="/createDivesite">Create Dive Site</Link>
     </div>
   );
 };
