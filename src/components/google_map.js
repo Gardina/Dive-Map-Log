@@ -3,7 +3,7 @@ import GoogleMapReact from 'google-map-react';
 
 import API_KEY from '../api_key'
 
-const Divesites = ({ name }) => <div>{name}</div>;
+const Divesites = ({ name, lat, lng }) => <div>{name}</div>;
 
 class GoogleMap extends Component {
   static get defaultProps() {
@@ -27,7 +27,12 @@ class GoogleMap extends Component {
           <Divesites
             lat={5.225367}
             lng={73.0856298}
-            text={'Dhigu Thila'}
+            name={'Dhigu Thila'}
+          />
+          <Divesites
+            lat={5.183513}
+            lng={73.122870}
+            name={'Bodu Gaa'}
           />
         </GoogleMapReact>
       </div>
