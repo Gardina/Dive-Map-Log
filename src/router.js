@@ -13,7 +13,6 @@ const routes = (
     <Home />
     <Switch>
       <Route exact path="/" component={MapMain} />
-      <Route path="/map" component={MapMain} />
       <Route path="/diveSites" component={DiveSites} />
       <Route path="/createDivesite" component={CreateDivesite} />
     </Switch>

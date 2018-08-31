@@ -1,13 +1,14 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { ConnectedRouter } from 'connected-react-router'
+import {BrowserRouter} from 'react-router-dom'
 import routes from './router'
 
 const App = ({ history }) => {
   return (
-    <ConnectedRouter history={history}>
+    <BrowserRouter >
       { routes }
-    </ConnectedRouter>
+    </BrowserRouter>
   )
 }
 
