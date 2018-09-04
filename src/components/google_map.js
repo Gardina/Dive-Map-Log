@@ -3,7 +3,12 @@ import GoogleMapReact from 'google-map-react';
 
 import API_KEY from '../api_key'
 
-const Divesites = ({ name, lat, lng }) => <div>{name}</div>;
+const DIVESITES = [
+  {lat: 5.225367, lng: 73.1856298, name: "Dhigu2" },
+  {lat: 5.125367, lng: 73.1856298, name: "New Rockk" },
+  {lat: 4.103259, lng: 73.533590, name: "Cool Rock"}]
+
+const Divesite = ({ name }) => <div>{name}</div>;
 
 class GoogleMap extends Component {
   static get defaultProps() {
@@ -12,9 +17,18 @@ class GoogleMap extends Component {
         lat: 5.225367,
         lng: 73.0856298
       },
-      zoom: 11
+      zoom: 11,
+      diveSites: DIVESITES
     }
   };
+
+  renderDivesites(){
+     return this.props.diveSites.map((site)=>{
+       return (
+        <Divesite name={site.name} lat={site.lat} lng={site.lng} key={site.name}/>
+       )
+     })
+ }
 
   render() {
     return (
@@ -24,16 +38,7 @@ class GoogleMap extends Component {
           defaultCenter={this.props.center}
           defaultZoom={this.props.zoom}
         >
-          <Divesites
-            lat={5.225367}
-            lng={73.0856298}
-            name={'Dhigu Thila'}
-          />
-          <Divesites
-            lat={5.183513}
-            lng={73.122870}
-            name={'Bodu Gaa'}
-          />
+          {this.renderDivesites()}
         </GoogleMapReact>
       </div>
     );
