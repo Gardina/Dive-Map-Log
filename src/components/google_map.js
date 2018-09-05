@@ -3,10 +3,7 @@ import _map from 'lodash.map'
 import GoogleMapReact from 'google-map-react';
 
 import API_KEY from '../api_key'
-
 import diveSites from '../fake_data/divesites'
-
-const Divesite = ({ name }) => <div>{name}</div>;
 
 class GoogleMap extends Component {
   static get defaultProps() {
@@ -21,6 +18,7 @@ class GoogleMap extends Component {
   };
 
   renderDivesites(){
+    const Divesite = ({ name }) => <div>{name}</div>;
     return _map(this.props.diveSites, site=>site).map((site)=>{
       return (
        <Divesite name={site.name} lat={site.lat} lng={site.lng} key={site.name}/>
