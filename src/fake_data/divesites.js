@@ -1,5 +1,4 @@
-const diveSites = {
-  area1: {
+export default {
       123: {
         name: "Dharavandoo Outside",
         lat: 5.153312,
@@ -9,9 +8,7 @@ const diveSites = {
         name: "Another Rock",
         lat: 5.253312,
         lng: 73.110552
-      }
-    },
-    area2: {
+      },
       103: {
         name: "Cucumber Thila",
         lat: 4.203259,
@@ -22,5 +19,4 @@ const diveSites = {
         lat: 4.103259,
         lng: 73.533590,
       }
-    }
 }

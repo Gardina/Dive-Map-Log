@@ -1,12 +1,10 @@
 import React, { Component } from 'react';
+import _map from 'lodash.map'
 import GoogleMapReact from 'google-map-react';
 
 import API_KEY from '../api_key'
 
-const DIVESITES = [
-  {lat: 5.225367, lng: 73.1856298, name: "Dhigu2" },
-  {lat: 5.125367, lng: 73.1856298, name: "New Rockk" },
-  {lat: 4.103259, lng: 73.533590, name: "Cool Rock"}]
+import diveSites from '../fake_data/divesites'
 
 const Divesite = ({ name }) => <div>{name}</div>;
 
@@ -18,16 +16,16 @@ class GoogleMap extends Component {
         lng: 73.0856298
       },
       zoom: 11,
-      diveSites: DIVESITES
+      diveSites
     }
   };
 
   renderDivesites(){
-     return this.props.diveSites.map((site)=>{
-       return (
-        <Divesite name={site.name} lat={site.lat} lng={site.lng} key={site.name}/>
-       )
-     })
+    return _map(this.props.diveSites, site=>site).map((site)=>{
+      return (
+       <Divesite name={site.name} lat={site.lat} lng={site.lng} key={site.name}/>
+      )
+    })
  }
 
   render() {
