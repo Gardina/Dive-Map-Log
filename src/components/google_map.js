@@ -18,7 +18,8 @@ class GoogleMap extends Component {
   };
 
   renderDivesites(){
-    const Divesite = ({ name }) => <div>{name}</div>;
+    const Divesite = ({ name }) => <div><h2>{name}</h2></div>;
+
     return _map(this.props.diveSites, site=>site).map((site)=>{
       return (
        <Divesite name={site.name} lat={site.lat} lng={site.lng} key={site.name}/>
