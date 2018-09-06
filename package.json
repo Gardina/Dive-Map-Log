@@ -10,6 +10,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@material-ui/core": "^3.0.2",
     "connected-react-router": "^4.4.1",
     "google-map-react": "^1.0.6",
     "history": "^4.7.2",
