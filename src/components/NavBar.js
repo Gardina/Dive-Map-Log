@@ -12,7 +12,7 @@ const NavBar = () => {
 
     return(
         <div>
-            <AppBar position="static">
+            <AppBar position="static" color="default">
                 <Toolbar>
                     <IconButton color="inherit" aria-label="Menu">
                       <MenuIcon />
