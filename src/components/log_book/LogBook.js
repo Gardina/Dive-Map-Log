@@ -14,7 +14,7 @@ class LogBook extends Component {
     this.props.fetchLog(diverId)
     }
 
-    renderLog(){
+  renderLog(){
       const LogItem = ({number, name, depth, time}) =>  <MenuItem>{number}. {name} depth {depth}m time {time}min</MenuItem>;
       const Log = this.props.logBook.logBook
       return Log.map((entry, i) => {return (
