@@ -1,7 +1,8 @@
 import { combineReducers } from 'redux';
+import logBookReducer from './logBookReducer'
 
 const rootReducer = combineReducers({
-  state: (state = {}) => state
+  logBook: logBookReducer
 });
 
 export default rootReducer;

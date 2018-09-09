@@ -1,7 +1,14 @@
+import diversData from '../fake_data/diverLog'
+
 import {
-  NEW_ACTION
+  FETCH_LOG
 } from './types';
 
-export const newAction = () => {
-  return { type: NEW_ACTION };
+export const fetchLog = (diverId) => {
+  const request = diversData[diverId]
+
+  return {
+    type: FETCH_LOG,
+    payload: request
+  }
 };

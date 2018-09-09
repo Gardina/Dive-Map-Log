@@ -1,1 +1,1 @@
-export const NEW_ACTION = 'new_action';
+export const FETCH_LOG = 'fetch_log';
