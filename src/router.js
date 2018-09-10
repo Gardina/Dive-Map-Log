@@ -3,8 +3,8 @@ import { Route, Switch } from 'react-router'
 
 import MapMain from './components/MapMain';
 import NavBar from './components/NavBar';
-import DiveSites from './components/header/Divesites';
-import CreateDivesite from './components/header/CreateDivesite';
+import DiveSites from './components/Divesites';
+import CreateDivesite from './components/CreateDivesite';
 
 const routes = (
   <div>
