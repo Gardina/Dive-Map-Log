@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import _map from 'lodash.map'
 import GoogleMapReact from 'google-map-react';
+import * as actions from '../actions'
+import {connect} from 'react-redux'
+import {withRouter} from 'react-router-dom'
 
 import API_KEY from '../api_key'
 import diveSites from '../fake_data/divesites'
@@ -27,10 +30,16 @@ class GoogleMap extends Component {
     })
  }
 
+ handleClick(lat, lng){
+   this.props.location.pathname === '/createDivesite' ? console.log(lat,lng) : null
+ }
+
   render() {
+
     return (
       <div style={{ height: '90vh', width: '100%' }}>
         <GoogleMapReact
+          onClick={({x, y, lat, lng, event}) => {this.handleClick(lat,lng)}}
           bootstrapURLKeys={{ key: API_KEY }}
           defaultCenter={this.props.center}
           defaultZoom={this.props.zoom}
@@ -42,4 +51,8 @@ class GoogleMap extends Component {
   }
 }
 
-export default GoogleMap;
+function mapStateToProps(createSiteCoord) {
+  return {createSiteCoord}
+}
+
+export default withRouter(connect(mapStateToProps, actions)(GoogleMap))
