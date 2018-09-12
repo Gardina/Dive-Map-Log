@@ -2,8 +2,8 @@ import React from 'react'
 import { shallow, mount, render } from 'enzyme';
 import DiveSites from '../Divesites'
 
-it('is defined', () => {
+it('contains h2', () => {
   const wrapper = shallow(<DiveSites/>);
 
-  expect(wrapper).toBeDefined()
+  expect(wrapper.find('h2').length).toEqual(1)
 })
