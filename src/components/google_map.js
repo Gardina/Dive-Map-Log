@@ -1,12 +1,10 @@
 import React, { Component } from 'react';
-import _map from 'lodash.map'
 import GoogleMapReact from 'google-map-react';
 import * as actions from '../actions'
 import {connect} from 'react-redux'
 import {withRouter} from 'react-router-dom'
 
 import API_KEY from '../api_key'
-import diveSites from '../fake_data/divesites'
 
 class GoogleMap extends Component {
   static get defaultProps() {
@@ -15,23 +13,27 @@ class GoogleMap extends Component {
         lat: 5.225367,
         lng: 73.0856298
       },
-      zoom: 11,
-      diveSites
+      zoom: 11
     }
   };
 
+  componentWillMount(){
+    this.props.fetchDiveSites()
+    }
+
   renderDivesites(){
+    console.log(this.props.diveSites)
     const Divesite = ({ name }) => <div><h2>{name}</h2></div>;
 
-    return _map(this.props.diveSites, site=>site).map((site)=>{
+    return this.props.diveSites.diveSites.map((site)=>{
       return (
-       <Divesite name={site.name} lat={site.lat} lng={site.lng} key={site.name}/>
+       <Divesite name={site.name} lat={site.lat} lng={site.lng} key={site.id}/>
       )
     })
  }
 
  handleClick(lat, lng){
-   this.props.location.pathname === '/createDivesite' ? console.log(lat,lng) : null
+   this.props.location.pathname === '/createDivesite' ? this.props.createDiveSite(lat, lng) : null
  }
 
   render() {
@@ -51,8 +53,8 @@ class GoogleMap extends Component {
   }
 }
 
-function mapStateToProps(createSiteCoord) {
-  return {createSiteCoord}
+function mapStateToProps(diveSites) {
+  return {diveSites}
 }
 
 export default withRouter(connect(mapStateToProps, actions)(GoogleMap))
