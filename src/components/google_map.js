@@ -22,7 +22,6 @@ class GoogleMap extends Component {
     }
 
   renderDivesites(){
-    console.log(this.props.diveSites)
     const Divesite = ({ name }) => <div><h2>{name}</h2></div>;
 
     return this.props.diveSites.diveSites.map((site)=>{

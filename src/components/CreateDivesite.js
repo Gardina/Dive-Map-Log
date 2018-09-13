@@ -1,15 +1,20 @@
-import React, {Component} from 'react';
+import React from 'react';
 import GoogleMap from './google_map'
+import Grid from '@material-ui/core/Grid'
 
-class CreateDivesite extends Component {
-  render(){
+import CreateSiteForm from './createSiteForm'
+
+const CreateDivesite = () => {
     return (
-      <div>
-        <h1>To add location click on the map</h1>
-        <GoogleMap />
-      </div>
+      <Grid container direction="row"  justify="center" alignItems="center">
+        <Grid item xs={9} >
+          <GoogleMap />
+        </Grid>
+        <Grid item xs={3} >
+          <CreateSiteForm />
+        </Grid>
+      </Grid>
     )
-  }
 };
 
 export default CreateDivesite;
