@@ -4,7 +4,8 @@ import diveSites from '../fake_data/divesites'
 import {
   FETCH_LOG,
   CREATE_DIVESITE,
-  FETCH_DIVESITES
+  FETCH_DIVESITES,
+  GET_COORD
 } from './types';
 
 export const fetchLog = (diverId) => {
@@ -29,5 +30,13 @@ export const createDiveSite = (lat, lng) => {
   return {
     type: CREATE_DIVESITE,
     payload: [lat, lng]
+  }
+};
+
+export const getCoord = (lat, lng) => {
+  console.log('get coord!!!')
+  return {
+    type: GET_COORD,
+    payload: {lat, lng}
   }
 };

@@ -32,7 +32,7 @@ class GoogleMap extends Component {
  }
 
  handleClick(lat, lng){
-   this.props.location.pathname === '/createDivesite' ? this.props.createDiveSite(lat, lng) : null
+   this.props.location.pathname === '/createDivesite' ? this.props.getCoord(lat, lng) : null
  }
 
   render() {

@@ -4,21 +4,36 @@ import {connect} from 'react-redux'
 import {createDiveSite}  from '../actions'
 
 class CreateSiteForm extends Component {
+
   renderField(field){
     return(
     <div>
       <label>{field.label}</label>
       <input
         type="text"
-        {...field.input}
         />
     </div>
-  )
+    )
+  }
+  renderCoord(field){
+    return (<div>{text}</div>)
+  }
+
+  handleChange(){
+
+  }
+
+  onSubmit(){
+    this.props.createDiveSite(null, () =>{
+
+      this.props.history.push('/')
+    })
   }
 
   render() {
+    const { handleSubmit } = this.props
     return (
-      <form>
+      <form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
         <h1>Click on the map to add new dive location</h1>
         <p>or put coordinates manually</p>
         <Field
@@ -26,16 +41,17 @@ class CreateSiteForm extends Component {
           component={this.renderField}
           label="New Site Name"
           />
-          <Field
+        <Field
             name="Latitude"
-            component={this.renderField}
+            component={this.renderCoord}
             label="Latitude"
             />
-          <Field
+        <Field
             name="Longitude"
-            component={this.renderField}
+            component={this.renderCoord}
             label="Longitude"
             />
+        <button type="submit">Sumbit</button>
       </form>
     )
   }
@@ -46,9 +62,13 @@ function validate(values) {
   return errors;
 }
 
+function mapStateToProps(getCoord) {
+  return {getCoord}
+}
+
 export default reduxForm({
   validate,
   form: 'newSiteForm'
 })(
-  connect(null, {createDiveSite})(CreateSiteForm)
+  connect(mapStateToProps, {createDiveSite})(CreateSiteForm)
 )
