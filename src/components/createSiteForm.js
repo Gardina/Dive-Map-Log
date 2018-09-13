@@ -11,29 +11,46 @@ class CreateSiteForm extends Component {
       <label>{field.label}</label>
       <input
         type="text"
+        {...field.input}
         />
     </div>
     )
   }
+
   renderCoord(field){
-    return (<div>{text}</div>)
+    let c = ''
+    field.label === 'Latitude' ? c = field.coord.lat : c = field.coord.lng
+    field.coord.length === 0 ? field.input.value = '' : field.input.value = c
+
+    return(
+    <div>
+      <label>{field.label}</label>
+      <input
+        type="text"
+        {...field.input}
+        />
+    </div>
+    )
   }
 
-  handleChange(){
-
+  handleOnFocus(field){
+    console.log(field)
   }
 
   onSubmit(){
-    this.props.createDiveSite(null, () =>{
-
-      this.props.history.push('/')
+    let lat = this.props.getCoord.getCoord.lat
+    let lng = this.props.getCoord.getCoord.lng
+    this.props.createDiveSite(lat, lng, () =>{
+     console.log('submit')
+     this.props.history.push('/')
     })
   }
 
   render() {
-    const { handleSubmit } = this.props
+    const coord = this.props.getCoord.getCoord
+    const { handleSubmit, onFocus} = this.props
     return (
-      <form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
+      <form onSubmit={handleSubmit(this.onSubmit.bind(this))} >
         <h1>Click on the map to add new dive location</h1>
         <p>or put coordinates manually</p>
         <Field
@@ -45,11 +62,14 @@ class CreateSiteForm extends Component {
             name="Latitude"
             component={this.renderCoord}
             label="Latitude"
+            coord={coord}
+            onFocus={this.handleOnFocus.bind(this)}
             />
         <Field
             name="Longitude"
             component={this.renderCoord}
             label="Longitude"
+            coord={coord}
             />
         <button type="submit">Sumbit</button>
       </form>

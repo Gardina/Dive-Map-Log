@@ -25,8 +25,9 @@ export const fetchDiveSites = () => {
   }
 };
 
-export const createDiveSite = (lat, lng) => {
+export const createDiveSite = (lat, lng, callback) => {
   console.log('create site!!!')
+  callback()
   return {
     type: CREATE_DIVESITE,
     payload: [lat, lng]
