@@ -6,7 +6,7 @@ import React from 'react'
 import rootReducer from './reducers'
 import ReduxThunk from 'redux-thunk';
 
-const history = createBrowserHistory();
+export const history = createBrowserHistory();
 
 const store = createStore(
   connectRouter(history)(rootReducer),

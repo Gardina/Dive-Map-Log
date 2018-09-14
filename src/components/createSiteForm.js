@@ -2,6 +2,7 @@ import React , { Component } from 'react';
 import {Field, reduxForm} from 'redux-form'
 import {connect} from 'react-redux'
 import {createDiveSite}  from '../actions'
+import {withRouter} from 'react-router-dom'
 
 class CreateSiteForm extends Component {
 
@@ -33,22 +34,17 @@ class CreateSiteForm extends Component {
     }
   }
 
-  handleOnFocus(field){
-    console.log(field)
-  }
-
   onSubmit(){
     let lat = this.props.getCoord.getCoord.lat
     let lng = this.props.getCoord.getCoord.lng
-    this.props.createDiveSite(lat, lng, () =>{
-     console.log('submit')
-     this.props.history.push('/')
+    this.props.createDiveSite(lat, lng, () => {
+      this.props.history.push('/')
     })
   }
 
   render() {
     const coord = this.props.getCoord.getCoord
-    const { handleSubmit, onFocus} = this.props
+    const { handleSubmit } = this.props
     return (
       <form onSubmit={handleSubmit(this.onSubmit.bind(this))} >
         <h1>Click on the map to add new dive location</h1>
@@ -64,7 +60,6 @@ class CreateSiteForm extends Component {
             component={this.renderField}
             label="Latitude"
             coord={coord}
-            onFocus={this.handleOnFocus.bind(this)}
             />
         <Field
             name="Longitude"
@@ -91,5 +86,5 @@ export default reduxForm({
   validate,
   form: 'newSiteForm'
 })(
-  connect(mapStateToProps, {createDiveSite})(CreateSiteForm)
+  withRouter(connect(mapStateToProps, {createDiveSite})(CreateSiteForm))
 )
