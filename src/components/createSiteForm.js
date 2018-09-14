@@ -6,31 +6,31 @@ import {createDiveSite}  from '../actions'
 class CreateSiteForm extends Component {
 
   renderField(field){
-    return(
-    <div>
-      <label>{field.label}</label>
-      <input
-        type="text"
-        {...field.input}
-        />
-    </div>
-    )
-  }
+    const input = () => {return (
+      <div>
+        <label>{field.label}</label>
+        <input
+          type="text"
+          {...field.input}
+          />
+      </div>
+    )}
 
-  renderCoord(field){
-    let c = ''
-    field.label === 'Latitude' ? c = field.coord.lat : c = field.coord.lng
-    field.coord.length === 0 ? field.input.value = '' : field.input.value = c
+    const renderCoordinate = (coor) => {
+      return <h3>{field.label} is {coor}</h3>
+    }
 
-    return(
-    <div>
-      <label>{field.label}</label>
-      <input
-        type="text"
-        {...field.input}
-        />
-    </div>
-    )
+    let coor = ''
+    switch (field.label) {
+      case "Latitude":
+        coor = field.coord.lat
+        return coor ? renderCoordinate(coor) : input()
+      case "Longitude":
+        coor = field.coord.lng
+        return coor ? renderCoordinate(coor) : input()
+      default:
+        return input()
+    }
   }
 
   handleOnFocus(field){
@@ -58,16 +58,17 @@ class CreateSiteForm extends Component {
           component={this.renderField}
           label="New Site Name"
           />
+        <h2>GPS coordinates</h2>
         <Field
             name="Latitude"
-            component={this.renderCoord}
+            component={this.renderField}
             label="Latitude"
             coord={coord}
             onFocus={this.handleOnFocus.bind(this)}
             />
         <Field
             name="Longitude"
-            component={this.renderCoord}
+            component={this.renderField}
             label="Longitude"
             coord={coord}
             />
