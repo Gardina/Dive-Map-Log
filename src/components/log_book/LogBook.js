@@ -2,9 +2,12 @@ import React , { Component } from 'react';
 import MenuList from '@material-ui/core/MenuList';
 import MenuItem from '@material-ui/core/MenuItem';
 import Paper from '@material-ui/core/Paper';
+import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography'
 import {connect} from 'react-redux'
 import * as actions from '../../actions'
+
+import ContainedButton from '../containedButton'
 
 const diverId = "diver1";
 
@@ -30,8 +33,10 @@ class LogBook extends Component {
           </Typography>
           <Typography variant='body1' color='textSecondary'>
             {this.renderLog()}
-          </Typography>em>
+          </Typography>
         </MenuList>
+        <ContainedButton text="Add new dive" color="primary"></ContainedButton>
+        <ContainedButton text="Show my LogBook" color='default'></ContainedButton>
       </Paper>
     )
   }

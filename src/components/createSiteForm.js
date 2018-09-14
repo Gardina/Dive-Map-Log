@@ -3,6 +3,11 @@ import {Field, reduxForm, change} from 'redux-form'
 import {connect} from 'react-redux'
 import {createDiveSite}  from '../actions'
 import {withRouter} from 'react-router-dom'
+import Paper from '@material-ui/core/Paper';
+import InputLabel from '@material-ui/core/InputLabel';
+import Input from '@material-ui/core/Input';
+import Typography from '@material-ui/core/Typography'
+
 
 class CreateSiteForm extends Component {
 
@@ -16,10 +21,10 @@ class CreateSiteForm extends Component {
   renderField(field){
     return (
       <div>
-        <label>{field.label}</label>
-        <input
-          type="text"
-          {...field.input}
+        <InputLabel>{field.label}</InputLabel>
+          <input
+            type="text"
+            {...field.input}
           />
       </div>
     )
@@ -34,15 +39,16 @@ class CreateSiteForm extends Component {
   render() {
     const { handleSubmit } = this.props
     return (
+      <Paper style={{ height: '90vh', width: '100%' }}>
       <form onSubmit={handleSubmit(this.onSubmit.bind(this))} >
-        <h1>Click on the map to add new dive location</h1>
-        <p>or put coordinates manually</p>
+        <Typography variant='headline' color='textPrimary' align='center'>
+          Create new dive site
+        </Typography>
         <Field
           name="newSiteName"
           component={this.renderField}
           label="New Site Name"
           />
-        <h2>GPS coordinates</h2>
         <Field
             name="Latitude"
             component={this.renderField}
@@ -55,6 +61,7 @@ class CreateSiteForm extends Component {
             />
         <button type="submit">Sumbit</button>
       </form>
+    </Paper>
     )
   }
 }
