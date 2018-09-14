@@ -18,7 +18,7 @@ export const fetchLog = (diverId) => {
 };
 
 export const fetchDiveSites = () => {
-
+  const request = diveSites
   return {
     type: FETCH_DIVESITES,
     payload: diveSites
@@ -26,7 +26,6 @@ export const fetchDiveSites = () => {
 };
 
 export const createDiveSite = (values, callback) => {
-  console.log(values)
   callback()
   return {
     type: CREATE_DIVESITE,

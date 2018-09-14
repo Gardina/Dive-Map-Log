@@ -17,9 +17,9 @@ class GoogleMap extends Component {
     }
   };
 
-  componentWillMount(){
+componentDidMount(){
     this.props.fetchDiveSites()
-    }
+  }
 
   renderDivesites(){
     const Divesite = ({ name }) => <div><h2>{name}</h2></div>;
