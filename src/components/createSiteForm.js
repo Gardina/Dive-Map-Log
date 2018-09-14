@@ -1,13 +1,20 @@
 import React , { Component } from 'react';
-import {Field, reduxForm} from 'redux-form'
+import {Field, reduxForm, change} from 'redux-form'
 import {connect} from 'react-redux'
 import {createDiveSite}  from '../actions'
 import {withRouter} from 'react-router-dom'
 
 class CreateSiteForm extends Component {
 
+  componentWillReceiveProps(nextProps){
+    if(nextProps.getCoord.getCoord !== this.props.getCoord.getCoord){
+      this.props.dispatch(change('newSiteForm', 'Latitude', nextProps.getCoord.getCoord.lat));
+      this.props.dispatch(change('newSiteForm', 'Longitude', nextProps.getCoord.getCoord.lng));
+    }
+  }
+
   renderField(field){
-    const input = () => {return (
+    return (
       <div>
         <label>{field.label}</label>
         <input
@@ -15,35 +22,16 @@ class CreateSiteForm extends Component {
           {...field.input}
           />
       </div>
-    )}
-
-    const renderCoordinate = (coor) => {
-      return <h3>{field.label} is {coor}</h3>
-    }
-
-    let coor = ''
-    switch (field.label) {
-      case "Latitude":
-        coor = field.coord.lat
-        return coor ? renderCoordinate(coor) : input()
-      case "Longitude":
-        coor = field.coord.lng
-        return coor ? renderCoordinate(coor) : input()
-      default:
-        return input()
-    }
+    )
   }
 
-  onSubmit(){
-    let lat = this.props.getCoord.getCoord.lat
-    let lng = this.props.getCoord.getCoord.lng
-    this.props.createDiveSite(lat, lng, () => {
+  onSubmit(values){
+    this.props.createDiveSite(values, () => {
       this.props.history.push('/')
     })
   }
 
   render() {
-    const coord = this.props.getCoord.getCoord
     const { handleSubmit } = this.props
     return (
       <form onSubmit={handleSubmit(this.onSubmit.bind(this))} >
@@ -59,13 +47,11 @@ class CreateSiteForm extends Component {
             name="Latitude"
             component={this.renderField}
             label="Latitude"
-            coord={coord}
             />
         <Field
             name="Longitude"
             component={this.renderField}
             label="Longitude"
-            coord={coord}
             />
         <button type="submit">Sumbit</button>
       </form>

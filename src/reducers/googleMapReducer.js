@@ -1,4 +1,5 @@
 import _map from 'lodash.map'
+import uniqid from 'uniqid'
 import {CREATE_DIVESITE, FETCH_DIVESITES} from '../actions/types'
 
 export default function(state =[], action) {

@@ -25,11 +25,12 @@ export const fetchDiveSites = () => {
   }
 };
 
-export const createDiveSite = (lat, lng, callback) => {
+export const createDiveSite = (values, callback) => {
+  console.log(values)
   callback()
   return {
     type: CREATE_DIVESITE,
-    payload: [lat, lng]
+    payload: values
   }
 };
 
