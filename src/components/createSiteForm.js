@@ -7,6 +7,7 @@ import Paper from '@material-ui/core/Paper';
 import InputLabel from '@material-ui/core/InputLabel';
 import Input from '@material-ui/core/Input';
 import Typography from '@material-ui/core/Typography'
+import Button from '@material-ui/core/Button';
 
 
 class CreateSiteForm extends Component {
@@ -59,7 +60,7 @@ class CreateSiteForm extends Component {
             component={this.renderField}
             label="Longitude"
             />
-        <button type="submit">Sumbit</button>
+          <Button type="submit">Sumbit</Button>
       </form>
     </Paper>
     )

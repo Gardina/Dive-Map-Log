@@ -4,14 +4,17 @@ import MapMain from '../MapMain'
 import Root from '../../Root'
 import GoogleMap from '../google_map'
 import LogBook from '../log_book/LogBook'
+import { BrowserRouter as Router } from 'react-router-dom';
 
 let wrapped;
 
 beforeEach(()=>{
   wrapped = mount(
-    <Root>
-      <MapMain />
-    </Root>
+    <Router>
+      <Root>
+        <MapMain/>
+      </Root>
+    </Router>
   )
 })
 
@@ -21,6 +24,7 @@ afterEach(()=>{
 
 it('renders GoogleMap component', () => {
   expect(wrapped.find(GoogleMap).length).toEqual(1)
+  console.log(wrapped)
 })
 
 it('renders LogBook component', () => {

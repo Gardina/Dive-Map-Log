@@ -1,13 +1,12 @@
 import React , { Component } from 'react';
+import {Link} from 'react-router-dom'
 import MenuList from '@material-ui/core/MenuList';
 import MenuItem from '@material-ui/core/MenuItem';
 import Paper from '@material-ui/core/Paper';
-import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography'
 import {connect} from 'react-redux'
 import * as actions from '../../actions'
-
-import ContainedButton from '../containedButton'
+import Button from '@material-ui/core/Button';
 
 const diverId = "diver1";
 
@@ -24,6 +23,11 @@ class LogBook extends Component {
         <LogItem number={i+1} name={entry.siteName} depth={entry.depth} time={entry.time} key={i}/>
       )} )
     }
+
+  addNewDive(){
+    console.log('add new dive')
+  }
+
   render() {
     return (
       <Paper style={{ height: '90vh', width: '100%' }}>
@@ -35,8 +39,8 @@ class LogBook extends Component {
             {this.renderLog()}
           </Typography>
         </MenuList>
-        <ContainedButton text="Add new dive" color="primary"></ContainedButton>
-        <ContainedButton text="Show my LogBook" color='default'></ContainedButton>
+        <Button fullWidth={true} color="primary" ><Link to="/createDive">Add New Dive</Link></Button>
+        <Button fullWidth={true} color='default'>Snow my Log</Button>
       </Paper>
     )
   }
