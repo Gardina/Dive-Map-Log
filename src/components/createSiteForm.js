@@ -1,7 +1,7 @@
 import React , { Component } from 'react';
 import {Field, reduxForm, change} from 'redux-form'
 import {connect} from 'react-redux'
-import {createDiveSite}  from '../actions'
+import {createDiveSite}  from 'src/actions/index'
 import {withRouter} from 'react-router-dom'
 import Paper from '@material-ui/core/Paper';
 import InputLabel from '@material-ui/core/InputLabel';

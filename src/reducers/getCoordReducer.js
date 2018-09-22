@@ -1,10 +1,11 @@
 import {GET_COORD} from '../actions/types'
+import {createReducer} from '../../utils.js'
 
-export default function(state =[], action) {
-  switch (action.type) {
-    case GET_COORD:
-      return action.payload
-    default:
-      return state;
+export default createReducer(
+  [], {
+    [GET_COORD]: (state, {data}) => {
+      console.log(data)
+      return data
+    }
   }
-}
+)

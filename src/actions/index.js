@@ -36,6 +36,6 @@ export const createDiveSite = (values, callback) => {
 export const getCoord = (lat, lng) => {
   return {
     type: GET_COORD,
-    payload: {lat, lng}
+    data: {lat, lng}
   }
 };
