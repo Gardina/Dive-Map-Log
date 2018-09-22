@@ -21,15 +21,14 @@ export const fetchDiveSites = () => {
   const request = diveSites
   return {
     type: FETCH_DIVESITES,
-    payload: diveSites
+    data: diveSites
   }
 };
 
-export const createDiveSite = (values, callback) => {
-  callback()
+export const createDiveSite = (values) => {
   return {
     type: CREATE_DIVESITE,
-    payload: values
+    data: values
   }
 };
 

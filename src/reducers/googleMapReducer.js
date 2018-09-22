@@ -1,19 +1,17 @@
 import _map from 'lodash.map'
 import uniqid from 'uniqid'
 import {CREATE_DIVESITE, FETCH_DIVESITES} from '../actions/types'
+import {createReducer} from '../../utils.js'
 
-export default function(state=[], action) {
-  switch (action.type) {
-    case FETCH_DIVESITES:
-    let fetchedSitesToArray = (_map(action.payload, (site, id)=>{ site.id = id; return site }))
+export default createReducer([], {
+  [FETCH_DIVESITES]: (state, {data}) => {
+    let fetchedSitesToArray = (_map(data, (site, id)=>{ site.id = id; return site }))
     return state.length === 0  ? fetchedSitesToArray : state
-    case CREATE_DIVESITE:
-    const newSite = action.payload
-    return [...state, {["name"]: newSite.newSiteName,
-                       ["lat"]: newSite.Latitude,
-                       ["lng"]: newSite.Longitude,
+  },
+  [CREATE_DIVESITE]: (state, {data}) => {
+    return [...state, {["name"]: data.newSiteName,
+                       ["lat"]: data.Latitude,
+                       ["lng"]: data.Longitude,
                        ["id"]: uniqid()} ]
-    default:
-      return state;
   }
-}
+})
