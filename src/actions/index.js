@@ -13,7 +13,7 @@ export const fetchLog = (diverId) => {
 
   return {
     type: FETCH_LOG,
-    payload: request
+    data: request
   }
 };
 
