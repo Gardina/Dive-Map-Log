@@ -1,4 +1,4 @@
-import diversData from '../fake_data/diverLog'
+import diversData from 'data/fake_data/diverLog'
 
 import {
   FETCH_LOG,

@@ -1,7 +1,7 @@
 import React from 'react';
 import Grid from '@material-ui/core/Grid'
 
-import CreateSiteForm from './createSiteForm'
+import CreateSiteForm from 'client/create-dive-site/CreateSiteForm'
 
 const CreateSiteFormWithGrid = () => {
     return (

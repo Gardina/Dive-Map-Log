@@ -19,7 +19,6 @@ const NavBar = () => {
                     </IconButton>
                     <Typography variant="title" color="inherit">
                       <Button><Link to="/">Dive Maps</Link></Button>
-                      <Button><Link to="/diveSites">Divesites</Link></Button>
                       <Button><Link to="/createDivesite">Create Dive Site</Link></Button>
                     </Typography>
                 </Toolbar>

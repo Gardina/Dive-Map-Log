@@ -1,7 +1,8 @@
 import _map from 'lodash.map'
 import uniqid from 'uniqid'
-import {CREATE_DIVESITE, FETCH_DIVESITES} from '../actions/types'
-import {createReducer} from '../../utils.js'
+
+import {CREATE_DIVESITE, FETCH_DIVESITES} from './types'
+import {createReducer} from 'utils.js'
 
 export default createReducer([], {
   [FETCH_DIVESITES]: (state, {data}) => {

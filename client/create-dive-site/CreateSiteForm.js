@@ -1,13 +1,14 @@
 import React , { Component } from 'react';
 import {Field, reduxForm, change} from 'redux-form'
 import {connect} from 'react-redux'
-import {createDiveSite}  from 'src/actions/index'
 import {withRouter} from 'react-router-dom'
 import Paper from '@material-ui/core/Paper';
 import InputLabel from '@material-ui/core/InputLabel';
 import Input from '@material-ui/core/Input';
 import Typography from '@material-ui/core/Typography'
 import Button from '@material-ui/core/Button';
+
+import {createDiveSite}  from 'client/google-map/redux/actions'
 
 
 class CreateSiteForm extends Component {

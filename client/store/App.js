@@ -2,7 +2,8 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { ConnectedRouter } from 'connected-react-router'
 import {BrowserRouter} from 'react-router-dom'
-import routes from './router'
+
+import routes from 'client/routes'
 
 const App = ({ history }) => {
   return (

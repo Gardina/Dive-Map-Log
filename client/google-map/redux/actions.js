@@ -1,4 +1,4 @@
-import diveSites from '../fake_data/divesites'
+import diveSites from 'data/fake_data/divesites'
 
 import {
   CREATE_DIVESITE,
@@ -14,7 +14,6 @@ export const fetchDiveSites = () => {
 };
 
 export const createDiveSite = (values, callback) => {
-  callback()
   return {
     type: CREATE_DIVESITE,
     data: values

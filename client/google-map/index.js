@@ -1,6 +1,7 @@
 import React from 'react';
-import GoogleMap from './googleMap'
 import Grid from '@material-ui/core/Grid'
+
+import GoogleMap from './google-map'
 
 const GoogleMapWithGrid = () => {
   return (

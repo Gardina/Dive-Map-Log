@@ -1,5 +1,5 @@
 import React from 'react';
-import LogBook from './log_book/LogBook'
+import LogBook from './logbook'
 import Grid from '@material-ui/core/Grid'
 
 const LogBookWithGrid = () => {

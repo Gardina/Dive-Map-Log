@@ -1,7 +1,8 @@
 import { combineReducers } from 'redux';
-import logBookReducer from './logBookReducer'
-import googleMapReducer from './googleMapReducer'
-import getCoordReducer from './getCoordReducer'
+
+import logBookReducer from 'client/logbook/redux/reducers'
+import googleMapReducer from 'client/google-map/redux/reducers'
+import getCoordReducer from 'client/create-dive-site/redux/reducers'
 import { reducer as formReducer } from 'redux-form'
 
 

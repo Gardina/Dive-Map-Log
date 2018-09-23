@@ -1,5 +1,5 @@
-import {GET_COORD} from '../actions/types'
-import {createReducer} from '../../utils.js'
+import {GET_COORD} from './types'
+import {createReducer} from 'utils.js'
 
 export default createReducer(
   [], {

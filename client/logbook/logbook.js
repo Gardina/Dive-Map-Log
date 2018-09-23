@@ -5,8 +5,9 @@ import MenuItem from '@material-ui/core/MenuItem';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography'
 import {connect} from 'react-redux'
-import * as actions from '../../actions'
 import Button from '@material-ui/core/Button';
+
+import {fetchLog} from 'client/logbook/redux/actions'
 
 const diverId = "diver1";
 
@@ -51,4 +52,4 @@ function mapStateToProps(logBook) {
 }
 
 
-export default connect(mapStateToProps, actions)(LogBook)
+export default connect(mapStateToProps, {fetchLog})(LogBook)

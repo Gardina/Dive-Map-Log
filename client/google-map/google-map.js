@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import GoogleMapReact from 'google-map-react';
-import * as actions from '../actions'
 import {connect} from 'react-redux'
 import {withRouter} from 'react-router-dom'
 
-import API_KEY from '../api_key'
+import {fetchDiveSites} from 'client/google-map/redux/actions'
+import {getCoord} from 'client/create-dive-site/redux/actions'
+import API_KEY from './api_key'
 
 class GoogleMap extends Component {
   static get defaultProps() {
@@ -56,4 +57,4 @@ function mapStateToProps(diveSites) {
   return {diveSites}
 }
 
-export default withRouter(connect(mapStateToProps, actions)(GoogleMap))
+export default withRouter(connect(mapStateToProps, {fetchDiveSites, getCoord})(GoogleMap))
