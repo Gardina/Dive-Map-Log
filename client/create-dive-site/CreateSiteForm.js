@@ -24,10 +24,11 @@ class CreateSiteForm extends Component {
     return (
       <div>
         <InputLabel>{field.label}</InputLabel>
-          <input
-            type="text"
-            {...field.input}
-          />
+            <Input
+              type="text"
+              fullWidth="true"
+              {...field.input}
+            />
       </div>
     )
   }
@@ -43,7 +44,10 @@ class CreateSiteForm extends Component {
       <Paper style={{ height: '90vh', width: '100%' }}>
       <form onSubmit={handleSubmit(this.onSubmit.bind(this))} >
         <Typography variant='headline' color='textPrimary' align='center'>
-          Create new dive site
+          To create new dive site
+        </Typography>
+        <Typography variant='headline' color='textPrimary' align='center'>
+          click on the map to get coordinates
         </Typography>
         <Field
           name="newSiteName"
@@ -60,7 +64,7 @@ class CreateSiteForm extends Component {
             component={this.renderField}
             label="Longitude"
             />
-          <Button type="submit">Sumbit</Button>
+          <Button type="submit" fullWidth="true">Sumbit</Button>
       </form>
     </Paper>
     )
