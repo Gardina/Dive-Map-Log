@@ -10,4 +10,4 @@ const LogBookWithGrid = () => {
   );
 };
 
-export default LogBookWithGrid;
+export default LogBookWithGrid

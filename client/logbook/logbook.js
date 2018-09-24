@@ -40,8 +40,14 @@ class LogBook extends Component {
             {this.renderLog()}
           </Typography>
         </MenuList>
-        <Button fullWidth={true} color="primary" ><Link to="/createDive">Add New Dive</Link></Button>
-        <Button fullWidth={true} color='default'>Snow my Log</Button>
+        <Button fullWidth={true} color="primary" >
+          <Link to="/createNewDive" style={{ textDecoration: 'none' }}>
+            Add New Dive
+          </Link>
+        </Button>
+        <Button fullWidth={true} color='default'>
+          Snow my Log
+        </Button>
       </Paper>
     )
   }
