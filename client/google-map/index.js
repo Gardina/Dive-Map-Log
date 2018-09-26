@@ -1,12 +1,12 @@
 import React from 'react';
 import Grid from '@material-ui/core/Grid'
 
-import GoogleMap from './google-map'
+import MyMap from './MyMap'
 
 const GoogleMapWithGrid = () => {
   return (
       <Grid item xs={9} >
-        <GoogleMap />
+        <MyMap />
       </Grid>
   );
 };
