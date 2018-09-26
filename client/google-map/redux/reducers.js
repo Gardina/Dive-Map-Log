@@ -1,5 +1,4 @@
 import _map from 'lodash.map'
-import uniqid from 'uniqid'
 
 import {CREATE_DIVESITE, FETCH_DIVESITES} from './types'
 import {createReducer} from 'utils.js'
@@ -13,6 +12,6 @@ export default createReducer([], {
     return [...state, {["name"]: data.newSiteName,
                        ["lat"]: data.Latitude,
                        ["lng"]: data.Longitude,
-                       ["id"]: uniqid()} ]
+                       ["id"]: `${data.Latitude}${data.Longitude}`} ]
   }
 })

@@ -35,10 +35,10 @@ class CreateNewDiveForm extends Component {
       <Paper style={{ height: '90vh', width: '100%' }}>
       <form onSubmit={handleSubmit(this.onSubmit.bind(this))} >
         <Typography variant='headline' color='textPrimary' align='center'>
-          To create new dive
+          To log your dive
         </Typography>
         <Typography variant='headline' color='textPrimary' align='center'>
-          click on the divesite to get coordinates and name
+          click on existing divesite or click on the map to create new one
         </Typography>
         <Field
           name="SiteName"
@@ -65,14 +65,14 @@ class CreateNewDiveForm extends Component {
           component={this.renderField}
           label="Longitude"
           />
-          <Button type="submit" fullWidth={true}>
-            Sumbit
-          </Button>
-          <Button type="submit" color="secondary" fullWidth={true}>
-            <Link to="/" style={{ textDecoration: 'none' }}>
-              Cancel
-            </Link>
-          </Button>
+        <Button type="submit" fullWidth={true}>
+          Sumbit
+        </Button>
+        <Button type="submit" color="secondary" fullWidth={true}>
+          <Link to="/" style={{ textDecoration: 'none' }}>
+            Cancel
+          </Link>
+        </Button>
       </form>
     </Paper>
     )

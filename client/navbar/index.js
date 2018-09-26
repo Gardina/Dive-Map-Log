@@ -17,9 +17,12 @@ const NavBar = () => {
                     <IconButton color="inherit" aria-label="Menu">
                       <MenuIcon />
                     </IconButton>
-                    <Typography variant="title" color="inherit">
-                      <Button><Link to="/">Dive Maps</Link></Button>
-                      <Button><Link to="/createDivesite">Create Dive Site</Link></Button>
+                    <Typography variant="title" color="inherit" size='large'>
+                      <Button>
+                        <Link to="/createDivesite" style={{ textDecoration: 'none' }}>
+                          Create New Dive Site
+                        </Link>
+                      </Button>
                     </Typography>
                 </Toolbar>
             </AppBar>
