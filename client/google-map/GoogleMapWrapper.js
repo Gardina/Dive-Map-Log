@@ -20,7 +20,7 @@ const GoogleMapWrapper = compose(
     defaultCenter={{ lat: 5.225367, lng: 73.0856298 }}
     onClick={props.onMapClick}
   >
-    <DiveSiteMarkers />
+    <DiveSiteMarkers onMarkerClick={props.onMarkerClick}/>
   </GoogleMap>
 )
 

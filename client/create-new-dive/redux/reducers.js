@@ -1,9 +1,9 @@
-import {CREATE_NEW_DIVE} from './types'
+import {GET_SITE_POSITION_AND_NAME} from './types'
 import {createReducer} from 'utils.js'
 
 export default createReducer(
   [], {
-    [CREATE_NEW_DIVE]: (state, {data}) => {
+    [GET_SITE_POSITION_AND_NAME]: (state, {data}) => {
       return state
     }
   }

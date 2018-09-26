@@ -19,15 +19,10 @@ class LogBook extends Component {
 
   renderLog(){
       const LogItem = ({number, name, depth, time}) =>  <MenuItem>{number}. {name} depth {depth}m time {time}min</MenuItem>;
-      const Log = this.props.logBook.logBook
-      return Log.map((entry, i) => {return (
+      return this.props.logBook.map((entry, i) => {return (
         <LogItem number={i+1} name={entry.siteName} depth={entry.depth} time={entry.time} key={i}/>
       )} )
     }
-
-  addNewDive(){
-    console.log('add new dive')
-  }
 
   render() {
     return (
@@ -53,8 +48,8 @@ class LogBook extends Component {
   }
 }
 
-function mapStateToProps(logBook) {
-  return {logBook}
+function mapStateToProps(state) {
+  return {logBook: state.logBook}
 }
 
 

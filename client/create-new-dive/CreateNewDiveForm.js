@@ -38,7 +38,7 @@ class CreateNewDiveForm extends Component {
           To log your dive
         </Typography>
         <Typography variant='headline' color='textPrimary' align='center'>
-          click on existing divesite or click on the map to create new one
+          click on existing divesite or click on the map to create new dive
         </Typography>
         <Field
           name="SiteName"
@@ -84,9 +84,13 @@ function validate(values) {
   return errors;
 }
 
+function mapStateToProps(state) {
+  return {getCoord: state.getCoord}
+}
+
 export default reduxForm({
   validate,
   form: 'newDiveForm'
 })(
-  withRouter(connect(null, {createNewDive})(CreateNewDiveForm))
+  withRouter(connect(mapStateToProps, {createNewDive})(CreateNewDiveForm))
 )

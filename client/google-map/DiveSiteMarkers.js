@@ -11,9 +11,9 @@ class DiveSiteMarkers extends Component {
     }
 
   renderDivesites(){
-    return this.props.diveSites.diveSites.map((site)=>{
+    return this.props.diveSites.map((site)=>{
       return (
-         <Marker position={{lat: site.lat, lng: site.lng}} key={site.id} title={site.name}/>
+         <Marker position={{lat: site.lat, lng: site.lng}} key={site.id} title={site.name} onClick={this.props.onMarkerClick}/>
         )
       })
    }
@@ -25,8 +25,8 @@ class DiveSiteMarkers extends Component {
    }
 }
 
-function mapStateToProps(diveSites) {
-  return {diveSites}
+function mapStateToProps(state) {
+  return {diveSites: state.diveSites}
 }
 
 export default connect(mapStateToProps, {fetchDiveSites, getCoord})(DiveSiteMarkers)

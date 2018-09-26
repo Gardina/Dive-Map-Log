@@ -14,9 +14,9 @@ import {createDiveSite}  from 'client/google-map/redux/actions'
 class CreateSiteForm extends Component {
 
   componentWillReceiveProps(nextProps){
-    if(nextProps.getCoord.getCoord !== this.props.getCoord.getCoord){
-      this.props.dispatch(change('newSiteForm', 'Latitude', nextProps.getCoord.getCoord.lat));
-      this.props.dispatch(change('newSiteForm', 'Longitude', nextProps.getCoord.getCoord.lng));
+    if(nextProps.getCoord !== this.props.getCoord){
+      this.props.dispatch(change('newSiteForm', 'Latitude', nextProps.getCoord.lat));
+      this.props.dispatch(change('newSiteForm', 'Longitude', nextProps.getCoord.lng));
     }
   }
 
@@ -83,8 +83,8 @@ function validate(values) {
   return errors;
 }
 
-function mapStateToProps(getCoord) {
-  return {getCoord}
+function mapStateToProps(state) {
+  return {getCoord: state.getCoord}
 }
 
 export default reduxForm({

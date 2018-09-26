@@ -1,10 +1,10 @@
 import {
-  CREATE_NEW_DIVE
+  GET_SITE_POSITION_AND_NAME
 } from './types';
 
-export const createNewDive = () => {
+export const getSitePosAndName = () => {
   return {
-    type: CREATE_NEW_DIVE,
+    type: GET_SITE_POSITION_AND_NAME,
     data: null
   }
 };
