@@ -8,7 +8,7 @@ import Input from '@material-ui/core/Input';
 import Typography from '@material-ui/core/Typography'
 import Button from '@material-ui/core/Button';
 
-import {createNewDive}  from 'client/create-new-dive/redux/actions'
+import {createNewDive}  from 'client/logbook/redux/actions'
 
 class CreateNewDiveForm extends Component {
 
@@ -35,6 +35,7 @@ class CreateNewDiveForm extends Component {
 
   onSubmit(values){
     this.props.history.push('/')
+    this.props.createNewDive(values)
   }
 
   render() {

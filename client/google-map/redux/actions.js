@@ -13,7 +13,7 @@ export const fetchDiveSites = () => {
   }
 };
 
-export const createDiveSite = (values, callback) => {
+export const createDiveSite = (values) => {
   return {
     type: CREATE_DIVESITE,
     data: values
