@@ -8,7 +8,14 @@ import {getSitePosAndName} from 'client/create-new-dive/redux/actions'
 
 class MyMap extends Component {
   handleMarkerClick(e){
-    this.props.location.pathname === '/createNewDive' ? console.log(e) : null
+    if (this.props.location.pathname === '/createNewDive' ){
+      let lat = e.latLng.lat()
+      let lng = e.latLng.lng()
+      let name = this.props.diveSites.filter((divesite)=>{
+        return divesite.id === `${lat}${lng}`
+      })[0].name
+      this.props.getSitePosAndName(lat, lng, name)
+    }
   }
 
   handleMapClick(e){
@@ -17,9 +24,16 @@ class MyMap extends Component {
 
   render(){
     return(
-      <GoogleMapWrapper onMapClick={this.handleMapClick.bind(this)} onMarkerClick={this.handleMarkerClick.bind(this)}/>
+      <GoogleMapWrapper
+        onMapClick={this.handleMapClick.bind(this)}
+        onMarkerClick={this.handleMarkerClick.bind(this)}
+        />
     )
   }
 }
 
-export default withRouter(connect(null, {getCoord, getSitePosAndName})(MyMap))
+function mapStateToProps(state) {
+  return {diveSites: state.diveSites}
+}
+
+export default withRouter(connect(mapStateToProps, {getCoord, getSitePosAndName})(MyMap))

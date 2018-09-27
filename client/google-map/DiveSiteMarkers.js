@@ -13,7 +13,11 @@ class DiveSiteMarkers extends Component {
   renderDivesites(){
     return this.props.diveSites.map((site)=>{
       return (
-         <Marker position={{lat: site.lat, lng: site.lng}} key={site.id} title={site.name} onClick={this.props.onMarkerClick}/>
+         <Marker
+           position={{lat: site.lat, lng: site.lng}}
+           key={site.id}
+           label={site.name}
+           onClick={this.props.onMarkerClick}/>
         )
       })
    }

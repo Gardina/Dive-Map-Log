@@ -12,6 +12,14 @@ import {createNewDive}  from 'client/create-new-dive/redux/actions'
 
 class CreateNewDiveForm extends Component {
 
+  componentWillReceiveProps(nextProps){
+    if(nextProps.getSitePosAndName !== this.props.getSitePosAndName){
+      this.props.dispatch(change('newDiveForm', 'Latitude', nextProps.getSitePosAndName.lat));
+      this.props.dispatch(change('newDiveForm', 'Longitude', nextProps.getSitePosAndName.lng));
+      this.props.dispatch(change('newDiveForm', 'SiteName', nextProps.getSitePosAndName.name));
+    }
+  }
+
   renderField(field){
     return (
       <div>
@@ -85,7 +93,7 @@ function validate(values) {
 }
 
 function mapStateToProps(state) {
-  return {getCoord: state.getCoord}
+  return {getSitePosAndName: state.getSitePosAndName}
 }
 
 export default reduxForm({
