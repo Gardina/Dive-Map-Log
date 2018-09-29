@@ -9,6 +9,7 @@ import Typography from '@material-ui/core/Typography'
 import Button from '@material-ui/core/Button';
 
 import {createNewDive}  from 'client/logbook/redux/actions'
+import {validate} from './formValidation'
 
 class CreateNewDiveForm extends Component {
 
@@ -21,14 +22,17 @@ class CreateNewDiveForm extends Component {
   }
 
   renderField(field){
+    const {meta: {touched, error}} = field
     return (
       <div>
         <InputLabel>{field.label}</InputLabel>
             <Input
+              color='error'
               type="text"
               fullWidth={true}
               {...field.input}
             />
+          <Typography color='error'>{touched ? error : ''}</Typography>
       </div>
     )
   }
@@ -86,11 +90,6 @@ class CreateNewDiveForm extends Component {
     </Paper>
     )
   }
-}
-
-function validate(values) {
-  const errors = {};
-  return errors;
 }
 
 function mapStateToProps(state) {

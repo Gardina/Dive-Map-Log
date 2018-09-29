@@ -9,6 +9,7 @@ import Typography from '@material-ui/core/Typography'
 import Button from '@material-ui/core/Button';
 
 import {createDiveSite}  from 'client/google-map/redux/actions'
+import {validate} from './formValidation'
 
 
 class CreateSiteForm extends Component {
@@ -21,6 +22,7 @@ class CreateSiteForm extends Component {
   }
 
   renderField(field){
+    const {meta: {touched, error}} = field
     return (
       <div>
         <InputLabel>{field.label}</InputLabel>
@@ -29,6 +31,7 @@ class CreateSiteForm extends Component {
               fullWidth={true}
               {...field.input}
             />
+          <Typography color='error'>{touched ? error : ''}</Typography>
       </div>
     )
   }
@@ -76,11 +79,6 @@ class CreateSiteForm extends Component {
     </Paper>
     )
   }
-}
-
-function validate(values) {
-  const errors = {};
-  return errors;
 }
 
 function mapStateToProps(state) {
