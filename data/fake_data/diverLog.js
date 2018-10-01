@@ -1,41 +1,41 @@
 export default {
-  diver1 : [
+  diver1: [
     {
-      siteName: 'napoleon reef',
+      siteName: "napoleon reef",
       depth: 21,
       time: 30
     },
     {
-      siteName: 'aidhoo corner',
+      siteName: "aidhoo corner",
       depth: 45,
       time: 40
     },
     {
-      siteName: 'aidhoo',
+      siteName: "aidhoo",
       depth: 45,
       time: 40
     },
     {
-      siteName: 'Turtle Rock',
+      siteName: "Turtle Rock",
       depth: 45,
       time: 40
     },
     {
-      siteName: 'Dhigu Thila',
+      siteName: "Dhigu Thila",
       depth: 45,
       time: 40
     }
   ],
-  diver2 : [
+  diver2: [
     {
-      siteName: 'manta BAY',
+      siteName: "manta BAY",
       depth: 21,
       time: 30
     },
     {
-      siteName: 'ANEMON thila',
+      siteName: "ANEMON thila",
       depth: 45,
       time: 40
     }
   ]
-}
+};

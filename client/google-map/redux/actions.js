@@ -1,21 +1,18 @@
-import diveSites from 'data/fake_data/divesites'
+import diveSites from "data/fake_data/divesites";
 
-import {
-  CREATE_DIVESITE,
-  FETCH_DIVESITES,
-} from './types';
+import { CREATE_DIVESITE, FETCH_DIVESITES } from "./types";
 
 export const fetchDiveSites = () => {
-  const request = diveSites
+  const request = diveSites;
   return {
     type: FETCH_DIVESITES,
     data: diveSites
-  }
+  };
 };
 
-export const createDiveSite = (values) => {
+export const createDiveSite = values => {
   return {
     type: CREATE_DIVESITE,
     data: values
-  }
+  };
 };

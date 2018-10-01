@@ -1,9 +1,14 @@
-import React from 'react';
-import { compose, withProps } from "recompose"
-import { withScriptjs, withGoogleMap, GoogleMap, Marker } from "react-google-maps"
+import React from "react";
+import { compose, withProps } from "recompose";
+import {
+  withScriptjs,
+  withGoogleMap,
+  GoogleMap,
+  Marker
+} from "react-google-maps";
 
-import API_KEY from './api_key'
-import DiveSiteMarkers from './DiveSiteMarkers'
+import API_KEY from "./api_key";
+import DiveSiteMarkers from "./DiveSiteMarkers";
 
 const GoogleMapWrapper = compose(
   withProps({
@@ -14,14 +19,14 @@ const GoogleMapWrapper = compose(
   }),
   withScriptjs,
   withGoogleMap
-)((props) =>
+)(props => (
   <GoogleMap
     defaultZoom={11}
     defaultCenter={{ lat: 5.225367, lng: 73.0856298 }}
     onClick={props.onMapClick}
   >
-    <DiveSiteMarkers onMarkerClick={props.onMarkerClick}/>
+    <DiveSiteMarkers onMarkerClick={props.onMarkerClick} />
   </GoogleMap>
-)
+));
 
-export default GoogleMapWrapper
+export default GoogleMapWrapper;
