@@ -3,11 +3,11 @@ export const validate = values => {
   if (!values.newSiteName) {
     errors.newSiteName = "Please enter Divesite name";
   }
-  if (!values.Latitude) {
-    errors.Latitude = "Please enter coordinates";
+  if (!values.Latitude || isNaN(values.Latitude)) {
+    errors.Latitude = "Please enter valid coordinates";
   }
-  if (!values.Longitude) {
-    errors.Longitude = "Please enter coordinates";
+  if (!values.Longitude || isNaN(values.Longitude)) {
+    errors.Longitude = "Please enter valid coordinates";
   }
   return errors;
 };
