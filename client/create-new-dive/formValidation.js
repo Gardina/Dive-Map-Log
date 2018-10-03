@@ -1,7 +1,10 @@
 export const validate = values => {
   const errors = {};
-  if (!values.SiteName) {
-    errors.SiteName = "Please enter Divesite name";
+  if (!values.newSiteName) {
+    errors.newSiteName = "Please enter Divesite name";
+  }
+  if (!values.Date) {
+    errors.Date = "Please enter valid date";
   }
   if (!values.MaxDepth || isNaN(values.MaxDepth)) {
     errors.MaxDepth = "Please enter your depth";

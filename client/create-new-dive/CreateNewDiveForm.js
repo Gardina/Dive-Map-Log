@@ -22,7 +22,7 @@ class CreateNewDiveForm extends Component {
         change("newDiveForm", "Longitude", nextProps.getSitePosAndName.lng)
       );
       this.props.dispatch(
-        change("newDiveForm", "SiteName", nextProps.getSitePosAndName.name)
+        change("newDiveForm", "newSiteName", nextProps.getSitePosAndName.name)
       );
     }
   }
