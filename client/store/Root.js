@@ -6,13 +6,11 @@ import React from "react";
 import rootReducer from "./reducers";
 import ReduxThunk from "redux-thunk";
 
-import checkDiveSiteName from "client/create-new-dive/redux/middlewares";
-
 export const history = createBrowserHistory();
 
 const store = createStore(
   connectRouter(history)(rootReducer),
-  applyMiddleware(checkDiveSiteName, routerMiddleware(history))
+  applyMiddleware(routerMiddleware(history))
 );
 
 export default props => {

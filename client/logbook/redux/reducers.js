@@ -9,7 +9,7 @@ export default createReducer([], {
     return [
       ...state,
       {
-        ["siteName"]: data.SiteName,
+        ["siteName"]: data.newSiteName,
         ["depth"]: data.MaxDepth,
         ["time"]: data.BottomTime,
         ["id"]: `${data.Latitude}${data.Longitude}`,

@@ -9,6 +9,7 @@ import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
 
 import { createNewDive } from "client/logbook/redux/actions";
+import { createDiveSite } from "client/google-map/redux/actions";
 import { validate } from "./formValidation";
 
 class CreateNewDiveForm extends Component {
@@ -42,6 +43,7 @@ class CreateNewDiveForm extends Component {
   onSubmit(values) {
     this.props.history.push("/");
     this.props.createNewDive(values);
+    this.props.createDiveSite(values);
   }
 
   render() {
@@ -53,22 +55,23 @@ class CreateNewDiveForm extends Component {
             To log your dive
           </Typography>
           <Typography variant="headline" color="textPrimary" align="center">
-            click on existing divesite or click on the map to create new dive
+            click on existing divesite or click on the map to create new one
           </Typography>
           <Field
-            name="SiteName"
+            name="newSiteName"
             component={this.renderField}
             label="Dive Site Name"
           />
+          <Field name="Date" component={this.renderField} label="Date" />
           <Field
             name="MaxDepth"
             component={this.renderField}
-            label="Max Depth Reached"
+            label="Max Depth Reached, meters"
           />
           <Field
             name="BottomTime"
             component={this.renderField}
-            label="Bottom Time"
+            label="Dive Time, min"
           />
           <Field
             name="Latitude"
@@ -105,7 +108,7 @@ export default reduxForm({
   withRouter(
     connect(
       mapStateToProps,
-      { createNewDive }
+      { createNewDive, createDiveSite }
     )(CreateNewDiveForm)
   )
 );

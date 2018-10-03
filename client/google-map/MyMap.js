@@ -22,6 +22,9 @@ class MyMap extends Component {
     this.props.location.pathname === "/createDivesite"
       ? this.props.getCoord(e.latLng.lat(), e.latLng.lng())
       : null;
+    this.props.location.pathname === "/createNewDive"
+      ? this.props.getSitePosAndName(e.latLng.lat(), e.latLng.lng())
+      : null;
   }
 
   render() {
